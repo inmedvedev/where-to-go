@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'places.apps.PlacesConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,8 +123,4 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'static/places')
 ]
-
-print('STATIC_URL', STATIC_URL)
-print('STATICFILES_DIRS', STATICFILES_DIRS)
