@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Place(models.Model):
@@ -7,6 +8,7 @@ class Place(models.Model):
     description_long = models.TextField('Описание')
     lng = models.FloatField('Долгота')
     lat = models.FloatField('Широта')
+    json_path = models.FilePathField('Адрес json файла', path=settings.PLACES_FILE_DIR, default='')
 
     def __str__(self):
         return f'{self.title}'
