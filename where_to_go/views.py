@@ -1,8 +1,7 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from places.models import Place, Image
+from django.http import JsonResponse
+from django.shortcuts import render, get_object_or_404
+from places.models import Place
 
-DEFAULT_IMAGE_URL = ['/home/ivan/where-to-go/media/default.jpg']
 
 def show_places(request):
     place_json = {
@@ -11,7 +10,6 @@ def show_places(request):
     }
     places = Place.objects.all()
     for place in places:
-        print(str(place.json_path))
         place_json["features"].append({
             "type": "Feature",
             "geometry": {
@@ -26,3 +24,24 @@ def show_places(request):
         )
 
     return render(request, 'index.html', context={'place_json': place_json})
+
+
+def place_detail(request, place_id):
+    place = get_object_or_404(Place, id=place_id)
+    place_images = place.images.all()
+    image_urls = [place_image.image.url for place_image in place_images]
+    response = {
+        "title": place.title,
+        "imgs": image_urls,
+        "description_short": place.description_short,
+        "description_long": place.description_long,
+        "coordinates": {
+            "lng": place.lng,
+            "lat": place.lat
+        }
+    }
+    return JsonResponse(response,
+                        safe=False,
+                        json_dumps_params={'ensure_ascii': False,
+                                           'indent': 4}
+                        )
