@@ -20,10 +20,12 @@ class Image(models.Model):
                               related_name='images')
     title = models.CharField('Название', max_length=200)
     image = models.ImageField('Картинка')
-    position = models.PositiveIntegerField('Позиция',
+    position = models.PositiveSmallIntegerField('Позиция',
                                            null=True,
-                                           unique=True,
                                            blank=True)
 
     def __str__(self):
         return f'{self.title}'
+
+    class Meta:
+        ordering = ('position',)
