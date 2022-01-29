@@ -4,7 +4,7 @@
 
 ## Описание
 
-[Сайт]() представляет подборку интересных мест в Москве
+[Сайт](https://inmedvedev.pythonanywhere.com/) представляет подборку интересных мест в Москве
 
 ![screenshot](screenshots/screenshot.jpg)
 
@@ -12,7 +12,7 @@
 
 ![mobile](screenshots/mob_screenshot.jpg)
 
-Наполнение сайта происзодит через специальную [панель администратора]().
+Наполнение сайта происзодит через специальную [панель администратора](https://inmedvedev.pythonanywhere.com/admin/).
 
 ![admin](screenshots/admin_screenshot.jpg)
 
