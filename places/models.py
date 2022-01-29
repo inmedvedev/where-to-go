@@ -12,6 +12,9 @@ class Place(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+    class Meta:
+        unique_together = ['title', 'lng', 'lat']
+
 
 class Image(models.Model):
     place = models.ForeignKey('Place',
@@ -28,4 +31,5 @@ class Image(models.Model):
         return f'{self.title}'
 
     class Meta:
+        unique_together = ['place', 'title']
         ordering = ('position',)
