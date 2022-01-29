@@ -41,3 +41,7 @@ python manage.py runserver
 * [Vue.js](https://ru.vuejs.org/) — реактивные шаблоны на фронтенде
 
 Тестовые данные взяты с сайта [KudaGo](https://kudago.com).
+
+## Цели проекта
+
+Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
