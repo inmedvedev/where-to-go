@@ -24,8 +24,8 @@ class Image(models.Model):
     title = models.CharField('Название', max_length=200)
     image = models.ImageField('Картинка')
     position = models.PositiveSmallIntegerField('Позиция',
-                                           null=True,
-                                           blank=True)
+                                                null=True,
+                                                blank=True)
 
     def __str__(self):
         return f'{self.title}'

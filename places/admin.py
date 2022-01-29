@@ -19,6 +19,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline,):
             height=int(multiplier * instance.image.height)
         )
 
+
 @admin.register(Place)
 class PlaceAdmin(admin.ModelAdmin):
     inlines = [
