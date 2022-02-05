@@ -34,7 +34,7 @@ def place_detail(request, place_id):
     place = get_object_or_404(Place, id=place_id)
     place_images = place.images.all()
     image_urls = [place_image.image.url for place_image in place_images]
-    response = {
+    place_description = {
         "title": place.title,
         "imgs": image_urls,
         "description_short": place.description_short,
@@ -44,7 +44,7 @@ def place_detail(request, place_id):
             "lat": place.lat
         }
     }
-    return JsonResponse(response,
+    return JsonResponse(place_description,
                         safe=False,
                         json_dumps_params={'ensure_ascii': False,
                                            'indent': 4}
