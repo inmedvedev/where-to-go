@@ -5,13 +5,13 @@ from django.urls import reverse
 
 
 def show_places(request):
-    place_json = {
+    place_features = {
         "type": "FeatureCollection",
         "features": []
     }
     places = Place.objects.all()
     for place in places:
-        place_json["features"].append({
+        place_features["features"].append({
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -24,7 +24,10 @@ def show_places(request):
         },
         )
 
-    return render(request, 'index.html', context={'place_json': place_json})
+    return render(
+                    request, 'index.html',
+                    context={'place_features': place_features}
+    )
 
 
 def place_detail(request, place_id):

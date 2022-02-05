@@ -133,3 +133,4 @@ dmypy.json
 
 #custom
 media/
+root_static/

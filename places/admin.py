@@ -10,13 +10,11 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline,):
     fields = ('image', 'show_image', 'position')
     extra = 0
 
-    def show_image(self, instance):
-        multiplier = 200/instance.image.height
+    def show_image(self, instance, max_height=200):
         return format_html(
-            '<img src="{url}" width="{width}" height={height} />',
+            '<img src="{url}" height="{height}"/>',
             url=instance.image.url,
-            width=int(multiplier * instance.image.width),
-            height=int(multiplier * instance.image.height)
+            height=max_height
         )
 
 
